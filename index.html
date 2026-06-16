@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaiah is ONE Happy Dude</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --blue:#5BC8F5;
+    --dark-blue:#1A6B9A;
+    --yellow:#F5C842;
+    --dark:#1a1a1a;
+    --white:#ffffff;
+    --checker-size:40px;
+  }
+  body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--dark);overflow-x:hidden;}
+  .checker{
+    background-image:linear-gradient(45deg,var(--blue) 25%,transparent 25%),linear-gradient(-45deg,var(--blue) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,var(--blue) 75%),linear-gradient(-45deg,transparent 75%,var(--blue) 75%);
+    background-size:var(--checker-size) var(--checker-size);
+    background-position:0 0,0 calc(var(--checker-size)/2),calc(var(--checker-size)/2) calc(-1*(var(--checker-size)/2)),calc(-1*(var(--checker-size)/2)) 0;
+    background-color:#fff;
+  }
+  #hero{background:#fff;text-align:center;padding:0;}
+  .hero-content{padding:2rem 1.5rem 0;position:relative;}
+  .hero-eyebrow{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:900;letter-spacing:0.25em;color:var(--dark);text-transform:uppercase;margin-bottom:0.75rem;}
+  .hero-main{display:flex;align-items:center;justify-content:center;gap:0.25rem;margin-bottom:0.5rem;}
+  .smiley{width:clamp(70px,16vw,110px);height:clamp(70px,16vw,110px);flex-shrink:0;}
+  .hero-one{font-size:clamp(5rem,22vw,11rem);font-weight:900;color:var(--blue);line-height:0.85;letter-spacing:-0.02em;font-style:italic;}
+  .hero-tagline{font-size:clamp(1.5rem,5vw,3rem);font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:var(--dark);margin-bottom:1.5rem;}
+  .countdown-box{display:inline-flex;gap:0.75rem;background:var(--dark);border-radius:16px;padding:1.25rem 2rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:center;}
+  .cd-unit{display:flex;flex-direction:column;align-items:center;min-width:56px;}
+  .cd-number{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;color:var(--yellow);line-height:1;}
+  .cd-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-top:4px;}
+  .cd-sep{font-size:2rem;font-weight:900;color:var(--blue);align-self:center;margin-top:-8px;}
+  .section-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:900;text-transform:uppercase;letter-spacing:0.15em;text-align:center;margin-bottom:2rem;color:var(--dark);}
+  .section-title span{color:var(--blue);}
+  .details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+  .detail-card{border:3px solid var(--dark);border-radius:12px;padding:1.25rem;background:#fff;position:relative;overflow:hidden;}
+  .detail-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--blue);}
+  .detail-card.yellow::before{background:var(--yellow);}
+  .detail-card.kids::before{background:#F5A0C8;}
+  .detail-icon{font-size:1.8rem;margin-bottom:0.5rem;display:block;}
+  .detail-card h3{font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue);margin-bottom:0.35rem;}
+  .detail-card.yellow h3{color:#B8900C;}
+  .detail-card.kids h3{color:#c0569a;}
+  .detail-card p{font-size:0.95rem;font-weight:600;color:var(--dark);line-height:1.5;}
+  .detail-card a{color:var(--dark-blue);text-decoration:none;}
+  .park-features{background:var(--dark);border-radius:16px;padding:1.75rem;margin-bottom:2rem;}
+  .park-features h3{font-size:0.8rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;}
+  .features-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.6rem;list-style:none;}
+  .features-list li{display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;font-weight:600;color:#fff;}
+  .features-list li span.emoji{font-size:1.1rem;}
+  .notice-banner{background:var(--yellow);border:3px solid var(--dark);border-radius:12px;padding:1rem 1.25rem;text-align:center;margin-top:0.75rem;}
+  .notice-banner p{font-size:0.9rem;font-weight:700;color:var(--dark);line-height:1.5;}
+  .notice-banner .big{font-size:1.2rem;font-weight:900;display:block;margin-bottom:0.25rem;}
+  #rsvp{background:#1a1a1a;padding:0 0 3rem;}
+  .rsvp-inner{max-width:600px;margin:0 auto;padding:3rem 1.5rem;}
+  .rsvp-form{background:#fff;border-radius:16px;border:4px solid var(--yellow);padding:2rem;}
+  .form-group{margin-bottom:1.25rem;}
+  .form-group label{display:block;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);margin-bottom:0.4rem;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem 1rem;border:2.5px solid var(--dark);border-radius:10px;font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:600;color:var(--dark);background:#fff;outline:none;transition:border-color 0.2s;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);}
+  .attend-options{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+  .attend-option{position:relative;}
+  .attend-option input[type="radio"]{position:absolute;opacity:0;width:0;height:0;}
+  .attend-option label{display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.85rem;border:2.5px solid var(--dark);border-radius:10px;cursor:pointer;font-size:0.95rem;font-weight:700;color:var(--dark);background:#fff;transition:all 0.2s;text-transform:uppercase;letter-spacing:0.08em;}
+  .attend-option.yes input[type="radio"]:checked + label{background:var(--blue);border-color:var(--blue);color:var(--dark);}
+  .attend-option.no input[type="radio"]:checked + label{background:#eee;color:var(--dark);}
+  .submit-btn{width:100%;padding:1rem;background:var(--yellow);border:3px solid var(--dark);border-radius:12px;font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;text-transform:uppercase;letter-spacing:0.15em;color:var(--dark);cursor:pointer;margin-top:0.5rem;transition:transform 0.15s,box-shadow 0.15s;box-shadow:4px 4px 0 var(--dark);}
+  .submit-btn:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--dark);}
+  .submit-btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:2px 2px 0 var(--dark);}
+  .submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;padding:1rem;}
+  .modal-overlay.active{display:flex;}
+  .modal-box{background:#fff;border:4px solid var(--dark);border-radius:20px;padding:2.5rem 2rem;text-align:center;max-width:420px;width:100%;box-shadow:8px 8px 0 var(--dark);animation:popIn 0.3s cubic-bezier(0.175,0.885,0.32,1.275);}
+  @keyframes popIn{from{transform:scale(0.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .modal-smiley{font-size:4rem;display:block;margin-bottom:0.75rem;}
+  .modal-box h2{font-size:1.6rem;font-weight:900;color:var(--dark);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;}
+  .modal-box h2 span{color:var(--blue);}
+  .modal-box p{font-size:0.9rem;font-weight:600;color:#555;line-height:1.6;margin-bottom:1.5rem;}
+  .modal-close{background:var(--dark);color:#fff;border:none;border-radius:10px;padding:0.75rem 2rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;}
+  .error-msg{background:#fff0f0;border:2px solid #e24b4a;border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;font-weight:600;color:#a32d2d;margin-bottom:1rem;display:none;}
+  footer{text-align:center;padding:2rem 1rem;background:var(--dark);color:rgba(255,255,255,0.5);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;}
+  footer span{color:var(--blue);}
+  @media(max-width:480px){.countdown-box{gap:0.5rem;padding:1rem;}.cd-sep{display:none;}.rsvp-form{padding:1.25rem;}}
+</style>
+</head>
+<body>
+
+<section id="hero">
+  <div style="height:80px;" class="checker"></div>
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;margin-top:-2px;width:100%;height:60px;">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#fff"/>
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30" stroke="#1a1a1a" stroke-width="8" fill="none"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Isaiah Is</p>
+    <div class="hero-main">
+      <svg class="smiley" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="56" fill="#1a1a1a"/>
+        <circle cx="60" cy="60" r="50" fill="#F5C842"/>
+        <polygon points="33,22 36.5,32 47,32 38.5,38.5 42,49 33,42.5 24,49 27.5,38.5 19,32 29.5,32" fill="#1a1a1a"/>
+        <polygon points="76,22 67,46 75,46 64,68 82,40 73,40 82,22" fill="#1a1a1a"/>
+        <path d="M36,78 Q60,100 84,78" stroke="#1a1a1a" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+        <path d="M44,83 Q60,96 76,83" fill="#fff" stroke="none"/>
+      </svg>
+      <div class="hero-one">NE</div>
+    </div>
+    <p class="hero-tagline">Happy Dude</p>
+    <div class="countdown-box">
+      <div class="cd-unit"><span class="cd-number" id="cd-days">--</span><span class="cd-label">Days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-number" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-number" id="cd-mins">--</span><span class="cd-label">Mins</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-number" id="cd-secs">--</span><span class="cd-label">Secs</span></div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+      <div style="text-align:center;">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#888;">Date</div>
+        <div style="font-size:1rem;font-weight:900;color:var(--dark);">Sun, August 2, 2026</div>
+      </div>
+      <div style="width:2px;background:var(--blue);border-radius:2px;align-self:stretch;"></div>
+      <div style="text-align:center;">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#888;">Time</div>
+        <div style="font-size:1rem;font-weight:900;color:var(--dark);">12 – 5 PM</div>
+      </div>
+      <div style="width:2px;background:var(--blue);border-radius:2px;align-self:stretch;"></div>
+      <div style="text-align:center;">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#888;">Venue</div>
+        <div style="font-size:1rem;font-weight:900;color:var(--dark);">Creekside Park</div>
+      </div>
+    </div>
+  </div>
+
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+    <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#f8f8f8"/>
+    <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30" stroke="#1a1a1a" stroke-width="8" fill="none"/>
+  </svg>
+</section>
+
+<section style="background:#f8f8f8;padding:2.5rem 1.5rem;">
+<div style="max-width:700px;margin:0 auto;">
+  <h2 class="section-title">Party <span>Details</span></h2>
+  <div class="details-grid">
+    <div class="detail-card">
+      <span class="detail-icon">📍</span>
+      <h3>Location</h3>
+      <p>Creekside Park<br><a href="https://maps.google.com/?q=3900+Creekside+Way+Oakley+CA+94561" target="_blank">3900 Creekside Way<br>Oakley, CA 94561</a></p>
+    </div>
+    <div class="detail-card yellow">
+      <span class="detail-icon">🗓️</span>
+      <h3>When</h3>
+      <p>Sunday, August 2, 2026<br>12:00 PM – 5:00 PM</p>
+    </div>
+    <div class="detail-card kids">
+      <span class="detail-icon">👙</span>
+      <h3>Dress Code</h3>
+      <p>It's gonna be hot! Wear light, breezy summer clothes. Kids — bring your splash pad gear &amp; a change of clothes!</p>
+    </div>
+  </div>
+  <div class="park-features">
+    <h3>What's at the park</h3>
+    <ul class="features-list">
+      <li><span class="emoji">💦</span> Splash Pad for Kids</li>
+      <li><span class="emoji">🏀</span> Basketball Court</li>
+      <li><span class="emoji">🛹</span> Skate Park</li>
+      <li><span class="emoji">🛝</span> Playground</li>
+      <li><span class="emoji">🌿</span> Lots of Open Space</li>
+    </ul>
+  </div>
+  <div class="notice-banner">
+    <span class="big">🎁 No Gifts, Just You!</span>
+    Your presence is the greatest present.
+  </div>
+  <div class="notice-banner" style="background:#f0f0f0;border-color:var(--dark);margin-top:0.75rem;">
+    <p>🍺 Per park rules — this will be an <strong>alcohol-free event</strong>. Thank you for understanding!</p>
+  </div>
+</div>
+</section>
+
+<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:#f8f8f8;">
+  <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#1a1a1a"/>
+  <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30" stroke="#5BC8F5" stroke-width="8" fill="none"/>
+</svg>
+
+<section id="rsvp">
+  <div class="rsvp-inner">
+    <h2 class="section-title" style="color:#fff;">RSVP <span style="color:var(--yellow);">Now</span></h2>
+    <p style="text-align:center;color:rgba(255,255,255,0.6);font-size:0.9rem;font-weight:600;margin-bottom:1.5rem;">Let us know if you can make it!</p>
+    <div class="rsvp-form">
+      <div class="error-msg" id="error-msg">Something went wrong. Please try again or text us directly!</div>
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" placeholder="(555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Will you attend? *</label>
+        <div class="attend-options">
+          <div class="attend-option yes">
+            <input type="radio" name="attend" id="attend-yes" value="yes">
+            <label for="attend-yes">🎉 Heck Yes!</label>
+          </div>
+          <div class="attend-option no">
+            <input type="radio" name="attend" id="attend-no" value="no">
+            <label for="attend-no">😢 Can't Make It</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" id="group-size-group" style="display:none;">
+        <label for="guests">How many guests (including yourself)?</label>
+        <select id="guests">
+          <option value="1">1 – Just me</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5+">5 or more</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="notes">Any notes for us?</label>
+        <textarea id="notes" rows="2" placeholder="Dietary needs, questions, etc." style="resize:vertical;"></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send My RSVP 🤙</button>
+    </div>
+  </div>
+</section>
+
+<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:#1a1a1a;">
+  <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z" fill="#1a1a1a"/>
+  <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30" stroke="#5BC8F5" stroke-width="8" fill="none"/>
+</svg>
+<div style="height:80px;" class="checker"></div>
+
+<footer>
+  <p>Made with ❤️ for <span>Isaiah</span> • August 2, 2026 • Creekside Park, Oakley CA</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <span class="modal-smiley" id="modal-icon">🎉</span>
+    <h2 id="modal-title">You're <span>In!</span></h2>
+    <p id="modal-msg"></p>
+    <button class="modal-close" onclick="closeModal()">Awesome, See You There!</button>
+  </div>
+</div>
+
+<script>
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzAlmlHtPKGn2JSqvUaIspvHKJiqIvSu7-1A9jS8OqrYYq1SfNIA6AvJjZM-bwXXsUA/exec';
+
+  function updateCountdown(){
+    const event=new Date('2026-08-02T12:00:00');
+    const now=new Date();
+    const diff=event-now;
+    if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
+    document.getElementById('cd-days').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cd-hours').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  document.getElementById('attend-yes').addEventListener('change',function(){
+    document.getElementById('group-size-group').style.display='block';
+  });
+  document.getElementById('attend-no').addEventListener('change',function(){
+    document.getElementById('group-size-group').style.display='none';
+  });
+
+  async function handleSubmit(){
+    const name=document.getElementById('name').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const attend=document.querySelector('input[name="attend"]:checked');
+    const guests=document.getElementById('guests').value;
+    const notes=document.getElementById('notes').value.trim();
+    const errEl=document.getElementById('error-msg');
+    const btn=document.getElementById('submit-btn');
+
+    errEl.style.display='none';
+
+    if(!name){alert('Please enter your name!');return;}
+    if(!phone&&!email){alert('Please enter at least a phone number or email!');return;}
+    if(!attend){alert('Please select whether you can attend!');return;}
+
+    btn.disabled=true;
+    btn.textContent='Sending... 🎈';
+
+    const payload={
+      name,
+      phone,
+      email,
+      attending: attend.value==='yes'?'Yes 🎉':'No 😢',
+      guests: attend.value==='yes'?guests:'',
+      notes
+    };
+
+    try {
+      await fetch(SHEET_URL, {
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+
+      const isYes=attend.value==='yes';
+      document.getElementById('modal-icon').textContent=isYes?'🎉':'😢';
+      document.getElementById('modal-title').innerHTML=isYes?'You\'re <span>In!</span>':'We\'ll <span>Miss You!</span>';
+      document.getElementById('modal-msg').textContent=isYes
+        ?'Thanks '+name+'! We can\'t wait to celebrate Isaiah\'s big day with you. See you August 2nd at Creekside Park! 🎂'
+        :'Thanks for letting us know, '+name+'. We\'ll miss you! Isaiah is sending you virtual birthday cake. 🎂';
+      document.getElementById('modal').classList.add('active');
+
+      document.getElementById('name').value='';
+      document.getElementById('phone').value='';
+      document.getElementById('email').value='';
+      document.getElementById('notes').value='';
+      document.querySelectorAll('input[name="attend"]').forEach(r=>r.checked=false);
+      document.getElementById('group-size-group').style.display='none';
+
+    } catch(err) {
+      errEl.style.display='block';
+    } finally {
+      btn.disabled=false;
+      btn.textContent='Send My RSVP 🤙';
+    }
+  }
+
+  function closeModal(){document.getElementById('modal').classList.remove('active');}
+  document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>
